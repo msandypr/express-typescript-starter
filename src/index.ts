@@ -1,4 +1,7 @@
-// Author: Muhammad Sandy Putra Riyadi ~ @msandypr
+/*
+ * Copyright (c) 2025 Muhammad Sandy Putra Riyadi
+ * Licensed under the BSD 3-Clause License.
+ */
 import express, { Express, Request, Response } from "express";
 import path from "path";
 import dotenv from "dotenv";

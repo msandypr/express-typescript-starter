@@ -1,5 +1,12 @@
 {
   "name": "express-typescript-starter",
+  "description": "A minimal Express.js starter template with TypeScript support.",
+  "author": "Muhammad Sandy Putra Riyadi <msandypr.dev@gmail.com>",
+  "license": "BSD 3-Clause",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/msandypr/express-typescript-starter.git"
+  },
   "module": "index.ts",
   "type": "commonjs",
   "devDependencies": {
@@ -24,8 +31,6 @@
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.12.0",
     "nodemon": "^3.1.9",
-    "sequelize": "^6.37.6",
-    "sequelize-typescript": "^2.1.6",
     "ts-node": "^10.9.2"
   }
 }
