@@ -1,0 +1,102 @@
+<!-- Author: Muhammad Sandy Putra Riyadi ~ @msandypr -->
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/assets/logo-msandypr.png">
+    <title>MSANDYPR's Express Typescript Starter</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script>
+        // Function to load components
+        async function loadComponent(elementId, path) {
+            try {
+                const response = await fetch(path);
+                const html = await response.text();
+                document.getElementById(elementId).innerHTML = html;
+            } catch (error) {
+                console.error('Error loading component:', error);
+            }
+        }
+
+        // Load components when the page loads
+        window.onload = function () {
+            loadComponent('navbar', '/components/navbar.html').then(() => {
+                // Add event listener after navbar is loaded
+                const menuButton = document.getElementById('menuButton');
+                const mobileMenu = document.getElementById('mobileMenu');
+
+                if (menuButton && mobileMenu) {
+                    menuButton.addEventListener('click', () => {
+                        mobileMenu.classList.toggle('hidden');
+                    });
+                }
+            });
+            loadComponent('footer', '/components/footer.html');
+        };
+    </script>
+</head>
+
+<body class="bg-gray-900 flex flex-col min-h-screen text-white">
+    <!-- Navbar placeholder -->
+    <div id="navbar"></div>
+
+    <!-- Main content -->
+    <main class="flex-grow">
+        <div class="container text-center mx-auto px-4 py-8 max-w-4xl">
+            <header class="mb-12">
+                <h1 id="applicationName" class="text-4xl font-bold text-white mb-2">Loading...</h1>
+                <p class="text-gray-400">Hello World!</p>
+            </header>
+
+            <section id="status" class="mb-8">
+                <h2 class="text-2xl font-semibold text-white mb-4">Status</h2>
+                <div class="bg-gray-800 p-4 rounded-lg shadow border border-gray-700 flex items-center justify-center">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
+                        <span id="apiStatus" class="text-green-400 font-medium text-lg">Loading...</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="info" class="mb-8">
+                <h2 class="text-2xl font-semibold text-white mb-4">Information</h2>
+                <div class="bg-gray-800 p-4 rounded-lg shadow border border-gray-700">
+                    <ul class="space-y-2 text-gray-400">
+                        <li><strong class="text-white">Version:</strong> 1.0.0</li>
+                        <li><strong class="text-white">Base URL:</strong> http://localhost:3000</li>
+                        <li><strong class="text-white">Content Type:</strong> application/json</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer placeholder -->
+    <div id="footer"></div>
+</body>
+
+<script>
+    async function updateApiStatus() {
+        try {
+            const response = await fetch('/applicationName');
+            const data = await response.json();
+            
+            if (data && data.applicationName) {
+                const appName = data.applicationName;
+                document.getElementById('applicationName').textContent = `${appName}`;
+                document.getElementById('apiStatus').textContent = `Online`;
+            } else {
+                throw new Error('Invalid response format');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            document.getElementById('apiStatus').textContent = 'APPLICATION_NAME is not configured';
+        }
+    }
+    
+    updateApiStatus();
+</script>
+
+</html>

@@ -1,0 +1,38 @@
+<!-- Author: Muhammad Sandy Putra Riyadi ~ @msandypr -->
+<nav class="bg-gray-800 shadow-lg border-b border-gray-700">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="flex items-center justify-between h-16">
+            <div class="flex-shrink-0 flex items-center">
+                <a href="/" class="flex items-center space-x-2">
+                    <img src="/assets/logo-msandypr.png" alt="NTM Logo" class="h-8 w-auto">
+                    <span class="text-xl font-semibold text-white">Documentation</span>
+                </a>
+            </div>
+            
+            <!-- Mobile menu button -->
+            <div class="flex md:hidden">
+                <button type="button" id="menuButton" class="inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Desktop menu -->
+            <div class="hidden md:flex md:items-center md:space-x-6">
+                <a href="#endpoints" class="text-gray-300 hover:text-white text-sm">Endpoints</a>
+                <a href="#info" class="text-gray-300 hover:text-white text-sm">API Info</a>
+                <a href="https://github.com/nusantara-teknologi-muda/express-be" target="_blank" class="text-gray-300 hover:text-white text-sm">GitHub</a>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#endpoints" class="block px-3 py-2 rounded-md text-base text-gray-300 hover:text-white hover:bg-gray-700">Endpoints</a>
+                <a href="#info" class="block px-3 py-2 rounded-md text-base text-gray-300 hover:text-white hover:bg-gray-700">API Info</a>
+                <a href="https://github.com/nusantara-teknologi-muda/express-be" target="_blank" class="block px-3 py-2 rounded-md text-base text-gray-300 hover:text-white hover:bg-gray-700">GitHub</a>
+            </div>
+        </div>
+    </div>
+</nav>
