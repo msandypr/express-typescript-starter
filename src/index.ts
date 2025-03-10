@@ -21,7 +21,23 @@ app.get("/", (req: Request, res: Response) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+// 404 Handler
+app.use((req: Request, res: Response) => {
+    res.status(404).json({
+        status: 'error',
+        message: '🔴 [Error]: Not found'
+    });
+});
+
+// Global Error Handler
+app.use((err: Error, req: Request, res: Response, next: Function) => {
+    console.error('🔴 [Failed] Error:', err);
+    res.status(500).json({
+        status: 'error',
+        message: '🔴 [Error]: Internal server error'
+    });
+});
 
 app.listen(port, () => {
-  console.log(`[server]: Server is running at http://localhost:${port}`);
+    console.log(`🟢 [Server]: Online at http://localhost:${port}`);
 });
